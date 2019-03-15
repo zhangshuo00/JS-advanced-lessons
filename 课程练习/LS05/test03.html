@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="snowflake.png" />
+    <title>函数</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //函数的三种定义方式
+    function max(a,b){
+        return a>b?a:b;
+    }
+    //不能再max1声明前面进行调用
+    var max1 = function(a,b){
+        return a>b?a:b;
+    }
+    max1(2,3);
+    //实例化函数
+    var max2 = Function('a','b','return a>b?a:b;')
+    //Function构造函数
+    //函数体以字符串的形式位于参数的最后
+    //Function(arg1,arg2.....,函数体)执行效率相对较低，但是更加灵活
+
+    //函数的调用
+    function test(){
+        console.log(this);
+    }
+    test();//window
+    //在对象的内部，this指向对象内部的方法调用
+    var obj = {
+        x:0,
+        test:function(){
+            console.log(this);
+        }
+    }
+    obj.test();
+
+    var objA = {'objName':'AAA'};
+    var objB = {'objName':'BBB'};
+    objA.test = function(){
+        console.log(this.objName);
+    }
+    objA.test();//AAA
+    objA.test.call(objB);//BBB
+    //方法.call(对象)将方法的调用执行从原有对象切换为当前对象
+
+
+    function Person(username){
+        this.username = username;
+    }
+    Person.prototype.sayHi = function(){
+        console.log(this.username);
+    }
+    var person = new Person('zhangsan');
+    var person1 = new Person('lisi');
+    console.log(person,person1);
+
+
+    function sum(){
+        var s = "";
+        for(var i=0;i<arguments.length;i++){
+            s+=arguments[i];
+        }
+        return s;
+    }
+    console.log(sum("hello","world"));
+
+
+    var a =1;
+    function test1(x){
+        x = 2;
+        console.log(x,a);
+    }
+    test1(a);//2  1
+
+    var objc = {x:0};
+    function bar(ojb1){
+        obj1.x = 2;
+        console.log(objc,obj1);
+    }
+    bar(objc);
+    //定义一个函数，传入一个参数，完成对参数的赋值处理，生成一个新的变量，
+    //并返回 参数类型 string boolean number 数组   
+    function copyArg(arg3){
+        var copy;
+        switch(true){
+            case(arg3 instanceof String):
+            case(arg3 instanceof Number):
+            case(arg3 instanceof Boolean):
+                copy = arg3;
+                break;
+            case(arg3 instanceof Array):
+                copy = [];
+                for(i = 0;i<arg3.length;i++){
+                    copy[i] = arg3[i];
+                }
+        }
+    }
+</script>
+</html>
