@@ -16,6 +16,8 @@ console.log(a,b,c,d);
 从里到外 各层作用域组成了作用域链
 
 词法作用域是静态作用域
+
+与调用的形式无关
 */
 var name = "zhangsan";
 function echo(){
@@ -46,3 +48,11 @@ function foo(){
     fee();
 }
 foo();//zhangsan
+
+//通过new Function实例化的函数对象，不一定遵从静态词法作用域?????
+var scope = 'a';
+function foo(){
+    var scope = '1';
+    return new Function("console.log(scope);")
+}
+foo()();
