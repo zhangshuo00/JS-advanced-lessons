@@ -34,7 +34,8 @@ if(true){
 }
 console.log(z);//z is not defined
 /*IIFE 立即执行函数表达式
-
+当解释器对代码进行解释的时候，先碰到()，然后碰到function关键字
+会将()内的代码识别为函数表达式，不是函数声明
 */
 function fn(){
     var i = 1;
