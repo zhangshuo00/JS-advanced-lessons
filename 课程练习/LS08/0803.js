@@ -10,3 +10,39 @@ function fn(){
 }
 fn();
 console.log(a,b,c,d);
+
+//词法作用域
+/*在作用域内 查找变量 
+从里到外 各层作用域组成了作用域链
+
+词法作用域是静态作用域
+*/
+var name = "zhangsan";
+function echo(){
+    console.log(name);
+}
+echo();//zhangsan
+//
+var name = "zhangsan";
+function echo(){
+    console.log(name);
+}
+function foo(){
+    var name = "lisi";
+    echo();
+}
+foo();//zhangsan
+//
+var name = "zhangsan";
+function echo(){
+    console.log(name);
+}
+function foo(){
+    var name = 'lisi';
+    function fee(){
+        var name = 'wangwu';
+        echo();
+    }
+    fee();
+}
+foo();//zhangsan
