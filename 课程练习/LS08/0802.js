@@ -18,3 +18,9 @@ f1();
 console.log(x);
 
 //
+var f2 = function (){
+    var y = "局部";
+    console.log(y);
+};
+f2();
+console.log(y);
