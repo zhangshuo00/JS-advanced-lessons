@@ -23,4 +23,4 @@ var f2 = function (){
     console.log(y);
 };
 f2();
-console.log(y);
+console.log(y);//函数内的变量前有var ,则此行报错：y not defined
