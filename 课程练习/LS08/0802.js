@@ -46,3 +46,7 @@ fn();
 var foo = fn();
 foo();//2
 foo();//3
+//foo 和 foo1 是两个不同的实例，分别拥有不同范围内的i变量
+var foo1 = fn();
+foo1();//2
+foo1();//3
