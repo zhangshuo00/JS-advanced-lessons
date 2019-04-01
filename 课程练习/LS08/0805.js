@@ -16,3 +16,15 @@ function Person(username,age){
 var p = new Person("lisi",20);
 console.log(p.__proto__ == Person.prototype);
 console.log(p.__proto__.__proto__);
+
+var o = {
+    _x : 1,
+    get x(){
+        return this._x;
+    },
+    set x(val){
+        this._x = val;
+    }
+}
+o.x = 10;
+console.log(o._x,o.x);
