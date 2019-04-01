@@ -34,6 +34,7 @@ function foo(){
     echo();
 }
 foo();//zhangsan
+
 //
 var name = "zhangsan";
 function echo(){
