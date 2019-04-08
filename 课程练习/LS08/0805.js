@@ -53,4 +53,24 @@ function Person(username,age){
 }
 var person1 = new Person('zhangsan',12);
 var person2 = new Person('lisi',12);
+console.log(person1.__proto__ == person2.__proto__);
 person1.sayHi();
+
+//
+var obj = {x:1};
+var z = 'age';
+// obj.z = 20;
+// console.log(obj);
+/**{x: 1, z: 20}
+x: 1
+z: 20 */
+
+obj[z] = 20;
+console.log(obj);
+/**{x: 1, age: 20}
+age: 20
+x: 1 */
+
+for(var i in obj){
+    console.log(i,obj[i]);
+}
