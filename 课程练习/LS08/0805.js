@@ -29,6 +29,7 @@ var o = {
 o.x = 10;
 console.log(o._x,o.x);
 
+//创建对象的方式
 var obj = {
     num:10,
     str:'hello',
@@ -41,3 +42,15 @@ var obj = {
 var subObject = Object.create(obj);
 console.log(subObject);
 console.log(subObject.__proto__ == obj);
+
+//创建对象的方式
+function Person(username,age){
+    this.username = username;
+    this.age = age;
+    this.sayHi = function(){
+        console.log(this.username);
+    }
+}
+var person1 = new Person('zhangsan',12);
+var person2 = new Person('lisi',12);
+person1.sayHi();
