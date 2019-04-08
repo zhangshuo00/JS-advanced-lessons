@@ -28,3 +28,16 @@ var o = {
 }
 o.x = 10;
 console.log(o._x,o.x);
+
+var obj = {
+    num:10,
+    str:'hello',
+    show:function(){
+        console.log(this.str);
+    }
+}
+//Object.create(obj);
+//创建一个新对象，并且将obj对象作为新对象的__proto__
+var subObject = Object.create(obj);
+console.log(subObject);
+console.log(subObject.__proto__ == obj);
