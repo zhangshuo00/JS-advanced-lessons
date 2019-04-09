@@ -44,8 +44,8 @@
 		(function(i){
 			tabs[i].onmouseover = function(){
 				for(var j = 0;j<tabs.length;j++){
-					tabs[j].classList.remove('active');
-					items[j].style.display = 'none';
+					tabs[j].classList.remove('active');//改变tab栏效果
+					items[j].style.display = 'none';//改变tab栏内容
 				}  
 				this.classList.add('active');
 				items[i].style = '';
@@ -58,8 +58,8 @@
 		(function(x){
 			input[x].onfocus = function(){
 				this.onblur = function(){
-					if(this.value == ''){
-						if(x == 0)
+					if(this.value == ''){//当input框value值为空时
+						if(x == 0)//x为0时表示，第一个input即用户名为空
 							alert('用户名不能为空');
 						else
 							alert('密码不能为空');
