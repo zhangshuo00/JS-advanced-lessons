@@ -65,9 +65,15 @@
 	}
 	//表单验证
 	var input = document.getElementsByTagName('input');
-	// console.log(input.length);
+	// console.log(input[0].value);
 	for(var x = 0;x<input.length;x++){
-		
+		(function(x){
+			input[x].onfocus = function(){
+				for(var y = 0;y<input.length;y++){
+
+				}
+			}
+		}(x));
 	}
 </script>
 </html>
