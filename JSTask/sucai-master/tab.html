@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" type="text/css" href="css/tab.css">
-	
 </head>
 <body>
 	<div class="logincontainer" id="logincontainer" style="margin: 0 auto;">
@@ -13,14 +12,10 @@
 			<div class="login-tab saomalogin active">扫码登录</div>
 			<div class="login-tab userlogin">帐户登录</div>
 		</div>
-
-
 		<!-- 二维码页面 -->
 		<div class="tab-item">
 			<img src="img/show.png">
 		</div>
-
-
 		<!-- 账户登录tab页面 -->
 		<div class="tab-item" style="display: none;">
 		<!-- <div class="tab-item"> -->
@@ -29,25 +24,19 @@
 				<label for="loginname" class="login-label"></label>
 				<input id="loginname" type="text" class="itxt" name="loginname" tabindex="1" autocomplete="off" placeholder="邮箱/用户名/已验证手机">
 			</div>
-
-
 			<!-- 密码框 -->
 			<div class="inputcontainer">
 				<label for="loginname" class="login-label pwd"></label>
 				<input id="pwd" type="text" class="itxt" name="pwd" tabindex="1" autocomplete="off" placeholder="密码">
 			</div>
-
-
 			<!-- 登录按钮 -->
 			<div class="loginbtn">
 				<a href="javascript:;" class="btn-img btn-entry" id="loginsubmit" tabindex="6" clstag="pageclick|keycount|201607144|3" style="outline: rgb(109, 109, 109) none 0px;">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
 			</div>
 		</div>
-		
 	</div>
 </body>
 <script>
-	
 	var tabs = document.getElementsByClassName('tabtitle')[0].children;
 	var items = document.getElementsByClassName('tab-item');
 	//切换tab栏内容
@@ -67,7 +56,6 @@
 	var input = document.getElementsByTagName('input');
 	for(var x = 0;x<input.length;x++){
 		(function(x){
-			//获取焦点事件
 			input[x].onfocus = function(){
 				this.onblur = function(){
 					if(this.value == ''){
