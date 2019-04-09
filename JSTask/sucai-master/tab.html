@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/tab.css">
+	
+</head>
+<body>
+	<div class="logincontainer" id="logincontainer" style="margin: 0 auto;">
+		<!-- tab栏标题 -->
+		<div class="tabtitle">
+			<div class="login-tab saomalogin active">扫码登录</div>
+			<div class="login-tab userlogin">帐户登录</div>
+		</div>
+
+
+		<!-- 二维码页面 -->
+		<div class="tab-item">
+			<img src="img/show.png">
+		</div>
+
+
+		<!-- 账户登录tab页面 -->
+		<div class="tab-item" style="display: none;">
+		<!-- <div class="tab-item"> -->
+			<!-- 邮箱 -->
+			<div class="inputcontainer">
+				<label for="loginname" class="login-label"></label>
+				<input id="loginname" type="text" class="itxt" name="loginname" tabindex="1" autocomplete="off" placeholder="邮箱/用户名/已验证手机">
+			</div>
+
+
+			<!-- 密码框 -->
+			<div class="inputcontainer">
+				<label for="loginname" class="login-label pwd"></label>
+				<input id="pwd" type="text" class="itxt" name="pwd" tabindex="1" autocomplete="off" placeholder="密码">
+			</div>
+
+
+			<!-- 登录按钮 -->
+			<div class="loginbtn">
+				<a href="javascript:;" class="btn-img btn-entry" id="loginsubmit" tabindex="6" clstag="pageclick|keycount|201607144|3" style="outline: rgb(109, 109, 109) none 0px;">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
+			</div>
+		</div>
+		
+	</div>
+</body>
+<script>
+	
+	var tabs = document.getElementsByClassName('tabtitle')[0].children;
+	var items = document.getElementsByClassName('tab-item')[0].children;
+
+	for(var i = 0;i<tabs.length;i++){
+		(function(i){
+			tabs[i].onmouseover = function(){
+				for(var j = 0;j<tabs.length;j++){
+					tabs[j].classList.remove('active');
+					// tabs[j].style.display = 'none';
+				}  
+				this.classList.add('active');
+				// this.style = '';
+			};
+		}(i));
+	}
+
+</script>
+</html>

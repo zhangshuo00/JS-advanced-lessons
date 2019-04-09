@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task01</title>
+</head>
+<body>
+    
+</body>
+<script>
+//任务二
+//姓名:张朔
+//班级:8班
+//学号:2017012067
+//日期:2019-03-16
+var a = [' abc ' , false , 2.366];
+function change(a){
+    for(var i = 0;i<a.length;i++){
+        if(typeof a[i] === 'string'){
+            a[i] = a[i].trim();
+        }else if(typeof a[i] === 'boolean'){
+            a[i] = Number(a[i]);
+        }else if(typeof a[i] === "number"){
+            a[i] = Number(a[i].toFixed(2));
+        }else{
+            console.log("该值有误");
+        }
+    }
+    console.log(a);
+}
+change(a);
+
+//Part04
+var str = "赵钱孙李周吴郑王冯陈楮卫蒋沈韩杨朱秦尤许何吕施张孔曹严华金魏陶姜";
+var b = prompt("请输入一个姓氏");
+//var b = "刘";
+function func(str,b){
+   
+    var loca = str.indexOf(b);
+    if(loca === -1){//姓氏不存在
+        console.log("该姓氏不存在");
+    }else{
+        console.log(loca);
+        if(loca != 0)
+            console.log(str.slice(0,loca));
+        else
+            console.log("该姓氏之前姓氏不存在");
+    }
+}
+func(str,b);
+</script>
+</html>
