@@ -50,7 +50,7 @@
 	
 	var tabs = document.getElementsByClassName('tabtitle')[0].children;
 	var items = document.getElementsByClassName('tab-item');
-	// console.log(tabs);
+	//切换tab栏内容
 	for(var i = 0;i<tabs.length;i++){
 		(function(i){
 			tabs[i].onmouseover = function(){
@@ -63,6 +63,11 @@
 			};
 		}(i));
 	}
-
+	//表单验证
+	var input = document.getElementsByTagName('input');
+	// console.log(input.length);
+	for(var x = 0;x<input.length;x++){
+		
+	}
 </script>
 </html>
