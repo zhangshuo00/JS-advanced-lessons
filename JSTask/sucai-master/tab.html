@@ -49,17 +49,17 @@
 <script>
 	
 	var tabs = document.getElementsByClassName('tabtitle')[0].children;
-	var items = document.getElementsByClassName('tab-item')[0].children;
-
+	var items = document.getElementsByClassName('tab-item');
+	// console.log(tabs);
 	for(var i = 0;i<tabs.length;i++){
 		(function(i){
 			tabs[i].onmouseover = function(){
 				for(var j = 0;j<tabs.length;j++){
 					tabs[j].classList.remove('active');
-					// tabs[j].style.display = 'none';
+					items[j].style.display = 'none';
 				}  
 				this.classList.add('active');
-				// this.style = '';
+				items[i].style = '';
 			};
 		}(i));
 	}
