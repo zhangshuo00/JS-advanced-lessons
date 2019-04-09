@@ -54,19 +54,19 @@
 	}
 	//表单验证
 	var input = document.getElementsByTagName('input');
-	for(var x = 0;x<input.length;x++){
-		(function(x){
-			input[x].onfocus = function(){
+	for(var i = 0;i<input.length;i++){
+		(function(i){
+			input[i].onfocus = function(){
 				this.onblur = function(){
 					if(this.value == ''){//当input框value值为空时
-						if(x == 0)//x为0时表示，第一个input即用户名为空
+						if(i == 0)//x为0时表示，第一个input即用户名为空
 							alert('用户名不能为空');
 						else
 							alert('密码不能为空');
 					}
 				}
 			}
-		}(x));
+		}(i));
 	}
 </script>
 </html>
