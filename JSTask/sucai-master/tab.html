@@ -65,12 +65,17 @@
 	}
 	//表单验证
 	var input = document.getElementsByTagName('input');
-	// console.log(input[0].value);
 	for(var x = 0;x<input.length;x++){
 		(function(x){
+			//获取焦点事件
 			input[x].onfocus = function(){
-				for(var y = 0;y<input.length;y++){
-
+				this.onblur = function(){
+					if(this.value == ''){
+						if(x == 0)
+							alert('用户名不能为空');
+						else
+							alert('密码不能为空');
+					}
 				}
 			}
 		}(x));
