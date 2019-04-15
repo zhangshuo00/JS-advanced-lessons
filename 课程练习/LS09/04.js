@@ -34,3 +34,17 @@ Person.prototype.sayHello = function(){
     console.log('hello world');
 }
 var person1 = new Person('zhangsan',1);
+//定义一个car对象，有属性height,width,weight,再定义一个smallCar对象，自身具有color，seatNum属性
+//让smallCar继承car的所有属性，使用create方法和构造函数实现
+var car = {
+    height:110,
+    width:100,
+    weight:2300
+};
+function CreateSmallCar(color,seatNum){
+    this.color = color;
+    this.seatNum  = seatNum;
+}
+CreateSmallCar.prototype = car;
+var smallCar = new CreateSmallCar('red',4);
+console.log(smallCar.__proto__ == CreateSmallCar.prototype);
