@@ -20,3 +20,13 @@ console.log(obj.y);
 console.log(obj.z);
 'z'in obj;
 obj.hasOwnProperty('z');
+
+var obj1 = {z:1};
+var obj2 = Object.create(obj1);
+console.log(obj2.__proto__ == obj1);
+obj2.z = 3;
+console.log(obj2.z);
+//delete操作仅可以删除对象自身上面的属性
+delete obj2.z;
+console.log(obj2.z);
+obj2.hasOwnProperty('z');
