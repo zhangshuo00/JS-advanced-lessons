@@ -57,3 +57,16 @@ var dog = {height:"100",name:"lisi"};
 animal.breath = function(){
     console.log(this.name + 'can breath');
 }
+
+var point = {
+    x:0,
+    y:0,
+    moveTo:function(x,y){
+        function moveToX(x){
+            this.x = x;
+        }
+        moveToX(x);
+    }
+}
+point.moveTo(2,2);
+console.log(point);
