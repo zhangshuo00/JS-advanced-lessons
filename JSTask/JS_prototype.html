@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task04</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 关系一 f1 对象的__proto__属性与其构造函数Foo的prototype属性，
+    // 指向相同，所以通过Foo实例化得到的对象可以去Foo.prototype上查找方法，
+    // 例如sayHello方法
+    function Foo(userName,age){
+        this.userName = userName;
+        this.age = age;
+    }
+    Foo.prototype.sayHello = function(){
+        console.log(this.userName + ' say hello.');
+    }
+</script>
+</html>
