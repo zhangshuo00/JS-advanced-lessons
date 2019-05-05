@@ -30,3 +30,46 @@ var product = table[2][4];
 var arr1 = [1,2,3,4];
 var reverse = arr1.reverse();
 console.log(reverse);
+
+// arr.forEach(callback,thisArg);
+// callback是针对数组的每个数组元素所应用的回调函数
+// value 表示数组元素的元素值
+// index 表示数组元素的索引值
+// thisArg 回调函数内部的this指向
+var arr1 = [1,2,3];
+var obj1 = {x:'d'};
+arr1.forEach(function(value,index,arr){
+    console.log(value,index,arr);
+    this[value] = value;
+},obj1);
+console.log(obj1);
+
+/**var result = arr.every(callback)
+ * 测试数组的数组元素执行回调函数的结果，如果有返回值为false的，
+ * 则result，如果均为true则result为true
+ */
+var arr1 = [10,20,30,40];
+var result = arr1.every(function(value){
+    return value > 20;
+})
+console.log(result);
+
+/**只要某些数组元素满足条件，返回值即为true
+ * 如果全都不满足，返回值为false
+ */
+var result = arr1.some(function(value){
+    return value > 30;
+})
+console.log(result);
+
+/**arr.map()创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果 */
+var result = arr1.map(function(value){
+    return value*2;
+})
+console.log(result);
+
+/**arr.filter() 创建一个新数组，其包含 通过所提供的函数的测试 的元素 */
+var result = arr1.filter(function(value){
+    return value >= 20;
+});
+console.log(result);
