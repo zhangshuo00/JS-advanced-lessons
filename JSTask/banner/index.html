@@ -9,18 +9,26 @@
 </head>
 <body>
         <div class="jsjy_LL" id="picList" style="position:relative;left: 50%;margin-left: -175px;">
+            
+            <!-- 图一 -->
             <div style="position:absolute">
                 <a href="#" target=_blank><img src="./img/1.jpg" class="ysjy_img" width="350px" height="200px" /></a>
                 <p class="jsjy_LL_title">我校召开2018-2020届家长委员会大会</p>
             </div>
+
+            <!-- 图二 -->
             <div style="position:absolute">
                 <a href="#" target=_blank><img src="./img/2.jpg" class="ysjy_img" width="350px" height="200px" /></a>
                 <p class="jsjy_LL_title">传递五四精神 铸就青春华章——我校举行纪...</p>
             </div>
+            
+            <!-- 图三 -->
             <div style="position:absolute">
                 <a href="#" target=_blank><img src="./img/3.png" class="ysjy_img" width="350px" height="200px" /></a>
                 <p class="jsjy_LL_title">2019十大最受欢迎班主任</p>
             </div>
+
+            <!-- 三个点 -->
             <ul style="position:absolute;" id="itemlist">                
                 <li class="active">
                     <a href="##">1</a>
@@ -35,7 +43,12 @@
         </div>
 </body>
 <script>
-    
+    /*封装插件的基本思想：把代码封闭到一个立即执行函数中，防止跟外部变量
+    冲突，然后将构造函数暴露给window对象，方便从外部调用*/
+    (function(window,document){
+        /*构造函数*/
+        function Carousel(){}
+    })
 </script>
 
 </html>

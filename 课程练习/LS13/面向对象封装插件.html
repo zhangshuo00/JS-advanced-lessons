@@ -10,12 +10,65 @@
             margin: 0;
             padding: 0;
         }
-        
+        #toast{
+            position: absolute;
+            display:none;
+            left: 50%;
+            top: 50%;
+            z-index: 9999;
+            margin:0 auto;
+            -webkit-transform: translate(-50%);
+            transform: translate(-50%);
+            width: 50%;
+            padding:5px;
+            border-radius: 5px;
+            text-align: center;
+            color:#fff;
+            background-color: #000;
+        }
     </style>
 </head>
 <body>
     <div id="toast"></div>
 </body>
 <script>
+    (function(){
+        /*
+            container 内容容器
+            content 文字内容
+            duration 显示时长
+        */
+        /*构造函数*/
+        function Toast(container,content,duration){
+            this.container = document.getElementById(container);
+            this.content = content || '这是一段话';
+            this.duration = duration || 3000;
+        }
+
+        /*给构造函数添加方法*/
+        Toast.prototype.show = function(callback){
+            this.callback = callback || function(){};//???啥意思
+            this.container.style.opacity = 1;
+            this.container.style.display = 'block';
+            this.container.innerHTML = this.content;
+
+            setTimeout(function(){
+                this.callback && this.callback();
+                this.hide();
+            }.bind(this),this.duration);
+            return this;
+        }
+
+        Toast.prototype.hide = function(callback){
+            this.callback = callback || function(){};
+            this.container.style.display = 'none';
+            this.callback && this.callback();
+            return this;
+        }
+
+        window.Toast = Toast;
+    })(window);
+    var toast = new Toast('toast','hello world');
+    toast.show();
 </script>
 </html>
