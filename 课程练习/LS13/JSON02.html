@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var jsObject = {
+        'username':'zhangsan',
+        'age': 20,
+        'adress':{
+            'addname':'shijiazhuang',
+            'addcode':'0001'
+        }
+    };
+    var jsonStr = JSON.stringify(jsObject,function(k,v){
+        if(typeof v == 'number'){
+            return undefined;
+        }
+        return v;
+    });
+    console.log(jsonStr);
+
+
+    var jsonStr = JSON.stringify(jsObject,['username','age']);
+    var jsObject = JSON.parse(jsonStr,function(k,v){
+        console.log(k,v);
+    })
+</script>
+</html>

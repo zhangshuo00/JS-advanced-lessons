@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="newList"></ul>
+</body>
+<script>
+    var newList = [
+        {'title':'js001'},
+        {'title':'js001'}
+    ];
+    var ulNode = document.getElementById('newList');
+    for(var i = 0;i<newList.length;i++){
+        var liNode = document.createElement('li');
+        liNode.innerHTML = newList[i]['title'];
+        ulNode.appendChild(liNode);
+    }
+
+    /**/
+    var jsonStr = JSON.stringify(newList);
+    console.log(jsonStr);
+    console.log(typeof jsonStr);
+
+    /*JSON.parse(json字符串)
+        将json字符串转换js对象的结构
+    */
+    var jsObject = JSON.parse(jsonStr);
+    console.log(jsObject);
+    console.log(typeof jsObject);
+</script>
+</html>
