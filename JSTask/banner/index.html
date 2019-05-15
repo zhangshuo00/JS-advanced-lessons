@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="index.css" />
 </head>
 <body>
         <div class="jsjy_LL" id="picList" style="position:relative;left: 50%;margin-left: -175px;">
@@ -45,10 +45,49 @@
 <script>
     /*封装插件的基本思想：把代码封闭到一个立即执行函数中，防止跟外部变量
     冲突，然后将构造函数暴露给window对象，方便从外部调用*/
-    (function(window,document){
+    (function(){
         /*构造函数*/
-        function Carousel(){}
-    })
-</script>
+        function Carousel(container,container1,duration){
+            this.container = document.getElementsByTagName(container);//获取结点
+            this.container1 = document.getElementById(container1);
+            this.duration = duration || 5000;
 
+            // this.picList = document.getElementById('picList').children;
+            // this.itemlist = document.getElementById('itemlist').children;
+            this.n = 1;
+            this.init();
+            // this.play();
+            // this.click();
+        }
+        //对图片的display进行初始化
+        Carousel.prototype.init = function(callback){
+            this.callback = callback || function(){};
+            for(var i = 1;i<4;i++){
+                this.container[i].style.display = 'none';
+            }
+        }
+
+        //图片自动播放
+        Carousel.prototype.play = function(callback){
+            this.callback = callback || function(){};
+            var time = setInterval(function(){
+                this.container[this.n].style.display = '';
+
+            }.bind(this),this.duration);
+            return this;
+        }
+
+        //图片点击跳转
+        // Carousel.prototype.click() = function(){
+            
+        // }
+        window.Carousel = Carousel;
+    })(window)
+    // var carousel = new Carousel('div',3000);
+    // carousel.init();
+    // carousel.play();
+    // console.log(document.getElementsByTagName('div')[1].style.position)
+    console.log(document.getElementById('itemlist').children[0])
+
+</script>
 </html>
