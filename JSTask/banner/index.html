@@ -48,46 +48,67 @@
     (function(){
         /*构造函数*/
         function Carousel(container,container1,duration){
-            this.container = document.getElementsByTagName(container);//获取结点
+            this.container = document.getElementById(container);//获取结点
             this.container1 = document.getElementById(container1);
             this.duration = duration || 5000;
-
-            // this.picList = document.getElementById('picList').children;
-            // this.itemlist = document.getElementById('itemlist').children;
             this.n = 1;
             this.init();
-            // this.play();
-            // this.click();
+            this.play();
+            this.click();
         }
         //对图片的display进行初始化
         Carousel.prototype.init = function(callback){
             this.callback = callback || function(){};
-            for(var i = 1;i<4;i++){
-                this.container[i].style.display = 'none';
-            }
+            for(var i = 1;i<3;i++){
+                this.container.children[i].style.display = 'none';
+            }//除第一张图片，其余display设置为none
+            return this;
         }
 
         //图片自动播放
         Carousel.prototype.play = function(callback){
             this.callback = callback || function(){};
-            var time = setInterval(function(){
-                this.container[this.n].style.display = '';
-
+            var m = 1;
+            setInterval(function(){
+                this.container.children[m].style.display = '';//显示第m张图片
+                this.container1.children[m].classList.add('active');
+                for(var i = 0;i<3;i++){
+                    if(i!=m){//判断当前是否为第m张，否的话隐藏，并去除active效果
+                        this.container.children[i].style.display = 'none';
+                        this.container1.children[i].classList.remove('active');
+                    }
+                }
+                m = (m+1)%3;
             }.bind(this),this.duration);
             return this;
         }
 
         //图片点击跳转
-        // Carousel.prototype.click() = function(){
-            
-        // }
+        Carousel.prototype.click = function(callback){
+            this.callback = callback || function(){};
+            var self = this;
+            for(var i=0;i<3;i++){
+                (function(j){//通过立即执行函数，绑定onmouseover事件
+                    self.container1.children[j].onmouseover = function(){
+                        self.n = j;
+                        self.container.children[j].style.display = '';
+                        self.container1.children[j].classList.add('active');
+                        for(var k=0;k<3;k++){
+                            if(k!=j){
+                                self.container.children[k].style.display = 'none';
+                                self.container1.children[k].classList.remove('active'); 
+                            }
+                        }
+                    }
+                })(i)
+            }
+            return this;
+        }
         window.Carousel = Carousel;
-    })(window)
-    // var carousel = new Carousel('div',3000);
-    // carousel.init();
-    // carousel.play();
-    // console.log(document.getElementsByTagName('div')[1].style.position)
-    console.log(document.getElementById('itemlist').children[0])
-
+    })(document,window)
+    var carousel = new Carousel('picList','itemlist',2000);//实例化对象
+    carousel.init();
+    carousel.play();
+    carousel.click();
 </script>
 </html>
