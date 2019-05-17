@@ -44,5 +44,22 @@
     $('.odd').css('background','red');
     $('.even').css('background','yellow');
     $('#td1').css('background','black');
+
+    // 过滤选择器
+    $('td:first').css('background','green');
+    $('td:last').css('background','blue');
+    $('td:even').css('background','pink');
+    $('td:odd').css('background','orange');
+
+    // $('td:eq(索引值)')选中特定索引值的元素
+    $('td:eq(0)').css('background','yellow');
+    var index = 2;
+    $('td:eq("+ index +")').css('background','blue');
+    // 列出索引值大于1的元素
+    $('td:gt(1)').css('background','pink');
+    // 列出索引值小于2的元素
+    $('td:lt(2)').css('background','pink');
+    
+    $('td:not(#td1)').css('background','pink');
 </script>
 </html>
