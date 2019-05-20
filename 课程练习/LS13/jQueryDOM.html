@@ -37,11 +37,20 @@
         $(选择器).append(jquery包装集) 向前面选中的元素内部最后位置添加新节点
         $(选择器).remove() 将选中元素删除
     */
+   /*
+        val() 用于获取或者设置表单元素的value()值
+        html() 用于获取或设置选中元素标签内部的html内容
+        css()  用于设置元素的样式，参数可以是对象或两个参数(样式名，属性值)
+   */
     $('#username').blur(function(){
         var $error = $("<span class='error'>用户名不能为空</span>");
         var inputVal = $(this).val();
         if(inputVal == ''){
             $(this).parent().append($error);
+            $(".error").css({
+                "color":"red",
+                "font-size":"20px"
+            })
         }else{
             $(".error").remove();
         }

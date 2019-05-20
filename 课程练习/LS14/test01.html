@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.js"></script>
+    <style>
+        .imgborder{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <img src="zhanqiao.jpg" id="img1">
+    <button id="attrbtn">attr</button>
+    <button id="btn">btn</button>
+    <button id="btn1">btn1</button>
+</body>
+<script>
+    /*
+        attr("属性名","属性值")  设置特定元素的属性
+        attr("属性名")   获取特定属性的属性值
+        removeAttr("属性名")  移除特定属性
+
+        addClass("class的名称")  表示向选中元素添加新的class
+    */
+   /*
+    1.引入jQuery库
+    2.得到jQuery包装集
+        $("#btn")
+
+        $("td:even") 索引值为偶数
+        $("td:odd")  索引值为奇数
+        $("td:eq(index)") 索引值为index
+        $("td:lt(index)") 索引值小于index
+        $("td:gt(index)") 索引值大于index
+        $("td:not(selector)") 排除特定元素的其他元素
+
+    3.事件
+        mouseover() ready() mouseout() mousemove() click() blur()
+    
+    4.DOM操作
+        $("html结构")
+        append() appendTo() before() insertBefore() after() insertAfter()
+        prepend() prependTo()
+
+        html() val() attr() removeAttr() addClass() removerClass() css()
+    5.
+   */
+    $("#attrbtn").click(function(){
+        $("#img1").attr("src","1.jpg");
+        alter($("#img1").attr("src"));
+    })
+    $("#btn").click(function(){
+        $("#img1").attr("title","这是一张图片");
+    })
+    $("#btn1").click(function(){
+        $("#img1").removeAttr("title");
+    })
+
+    $("#img1").mouseover(function(){
+        $(this).addClass("imgborder");
+    })
+    $("#img1").mouseout(function(){
+        $(this).removeClass("imgborder")
+    })
+    // $(document).ready(function(){
+    //     alert(1);
+    // })
+    // $(document).ready(function(){
+    //     alert(2)
+    // })
+</script>
+</html>
