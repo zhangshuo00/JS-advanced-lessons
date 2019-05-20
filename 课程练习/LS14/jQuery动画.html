@@ -15,6 +15,48 @@
     </style>
 </head>
 <body>
-    
+    <div></div>
+    <button id="slideUp">slideUp</button>
+    <button id="slideDown">slideDown</button>
+    <button id="fadeIn">fadeIn</button>
+    <button id="fadeOut">fadeOut</button>
+    <button id="animate">animate</button>
 </body>
+<script>
+
+    $("#slideUp").click(function(){
+        $("div").slideUp(1000)
+    })
+    $("#slideDown").click(function(){
+        $("div").slideDown(1000)
+    })
+
+    /*
+        设置元素的opacity透明度渐变
+    */
+    $("#fadeOut").click(function(){
+        $("div").fadeOut(1000)
+    })
+    $("#fadeIn").click(function(){
+        $("div").fadeIn(1000)
+    })
+
+    /*
+        动画的执行顺序，
+        同步执行
+        顺序执行
+    */
+    $("#animate").click(function(){
+        // $("div").animate({
+        //     "margin-left":"200px",
+        //     "margin-top":"200px"
+        // },1000)
+        $("div").animate({
+            "margin-left":"200px"
+        },2000)
+        $("div").animate({
+            "margin-left":"0px"
+        },2000)
+    })
+</script>
 </html>
