@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        let作用的范围是{}
+        块级作用域
+        可以防止变量的污染
+    */
+    let username = 'zhangsan';
+    if(true){
+        let username = 'lisi'
+    }
+    console.log(username);
+
+    for(let i = 0;i<3;i++){
+        setTimeout(function(){
+            console.log(new Date(),i);
+        },i*1000)
+    }
+
+    //声明常量，不可修改，声明时必须赋值
+    //修改会报错
+    const PI = 3.1415926;
+
+    /*
+        const定义对象时，引用地址不可变
+        对象上的属性是可变的
+        const作用域也是块级作用域
+    */
+    const obj = {"username":"zhangsan"};
+    let obj1 = {"username":'lisi'};
+    obj.username = "wangwu";
+</script>
+</html>
