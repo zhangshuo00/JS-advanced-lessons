@@ -131,22 +131,53 @@
     </table>
 </body>
 <script>
+$(document).ready(function(){
     //box-shadow阴影效果
     $("button").mouseover(function(){
         $(this).addClass('shadowBut')
     }).mouseout(function(){
         $(this).removeClass('shadowBut')
     })
-    //C 归零
-    $("button:first").click(function(){
-        $("#result").html(0)
-    })
     //计算
+    var a,len1,qian,fuHao,b,len2,hou,result=1;
     $("button").click(function(){
         var s = $(this).val();
         var r = $("#result");
-        // console.log(s)
-        
+        if(s == 'C')//归零
+            r.html(0);
+        else if(r.html() == 0){
+            r.html('');
+            r.html(r.html() + s);
+        }else{
+            r.html(r.html() + s);
+        }
+        //判断当前是否输入运算符
+        if(s=='+' || s=='-' || s=='*' || s=='/'){
+            a = r.html();
+            len1 = a.length;
+            qian = Number(a.substring(0,len1 - 1));
+            console.log(qian);
+            fuHao = s;
+            console.log(fuHao);
+        }
+        //判断是否输入=，需要计算
+        if(s == '='){
+            b = r.html();
+            len2 = b.length;
+            hou = Number(b.substring(len1,len2-1));
+            console.log(hou);
+            switch(fuHao){
+                case "+": result = qian + hou;break;
+                case "-": result = qian - hou;break;
+                case "*": result = qian * hou;break;
+                case "/": result = qian / hou;break;
+            }
+            if(String(result).indexOf(".") != -1)
+                r.html(result.toFixed(2));
+            else
+                r.html(result);
+        }
     })
+})
 </script>
 </html>
