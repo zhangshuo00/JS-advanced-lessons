@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单计算器实现</title>
+    <script src="jquery-3.4.1.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/ex1.css" />
+    <!-- <script src="js/ex1.js"></script> -->
+    <style>
+        *{
+    padding: 0;
+}
+.top{
+    width:400px;
+    height:480px;
+    border: 1px solid black;
+    margin-left: 525px;
+    margin-top:20px;
+}
+.top_top{
+    width:392px;
+    height:65px;
+    border: 1px solid black;
+    margin: 5px auto;
+}
+.top_center{
+    width:392px;
+    height:45px;
+    border:1px solid black;
+    margin:5px auto;
+}
+.top_bottom{
+    width:392px;
+    height:344px;
+    border:1px solid black;
+    margin:5px auto;
+}
+.btn{
+    width:86px;
+    height:37px;
+    border:1px solid black;
+    margin:3px 5px;
+    float: left;
+}
+.numb_1{
+    width:70px;
+    height:70px;
+    border:1px solid black;
+    margin:10px 13px;
+    float:left;
+}
+.numb_2{
+    width:70px;
+    height:70px;
+    border:1px solid black;
+    margin:6px 13px;
+    float:left;
+}
+.numb_3{
+    width:70px;
+    height:70px;
+    border:1px solid black;
+    margin:6px 13px;
+    float:left;
+}
+.numb_4{
+    width:70px;
+    height:70px;
+    border:1px solid black;
+    margin:6px 13px;
+    float:left;
+}
+.Skin_change{
+    border: 0 solid black;
+    width:82px;
+    height:33px;
+    margin: 2px 2px;
+    font-size: larger;
+}
+.btn_a{
+    margin:0;
+    padding: 0;
+    width:86px;
+    height:37px;
+    border: 0;
+    font-size: larger;
+    text-align: center;
+    opacity: 0.8;
+    display: block;
+    line-height: 37px;
+}
+.btn_b{
+    margin:0;
+    padding: 0;
+    width:86px;
+    height:37px;
+    border: 0;
+    font-size: larger;
+    text-align: center;
+    opacity: 0.8;
+    display: block;
+    line-height: 37px;
+}
+.btn_c{
+    margin:0;
+    padding: 0;
+    width:86px;
+    height:37px;
+    border: 0;
+    font-size: larger;
+    text-align: center;
+    opacity: 0.8;
+    display: block;
+    line-height: 37px;
+}
+.top_bottom p{
+    margin: 0;
+    width:70px;
+    height:70px;
+    font-size: 160%;
+    text-align: center;
+    opacity: 0.7;
+    display: block;
+    line-height: 70px;
+}
+p:hover{
+    cursor: pointer;
+    background-color:#CECBCB;
+}
+h3{
+    float: left;
+    line-height:39px;
+    font-weight: normal;
+}
+#get_one{
+    margin:12px 0 0 5px;
+    width:240px;
+    border:0 solid black;
+    height:39px;
+}
+#get_two{
+    margin:12px 0 0 5px;
+    width:130px;
+    border:0 solid black;
+    height:39px;
+}
+    </style>
+</head>
+<body>
+<!--最外层-->
+<div class="top">
+    <!--内层上方-->
+    <div class="top_top">
+        <!--输入1-->
+        <h3 id="get_one"></h3>
+        <!--符号项-->
+        <h3 id="get_two"></h3>
+    </div>
+    <!--内层中间-->
+    <div class="top_center">
+        <!--换肤-->
+        <div class="btn">
+            <select class="Skin_change">
+                <option value="white">白色</option>
+                <option value="green">绿色</option>
+                <option value="blue">蓝色</option>
+                <option value="grey">灰色</option>
+                <option value="orange">橙色</option>
+            </select>
+        </div>
+        <!--清屏-->
+        <div class="btn">
+            <p class=" btn_a">清屏</p>
+        </div>
+        <!--记录-->
+        <div class="btn">
+            <p class=" btn_b">记录</p>
+        </div>
+        <!--退出-->
+        <div class="btn">
+            <p class="btn_c">退出</p>
+        </div>
+    </div>
+    <!--内层下方-->
+    <div class="top_bottom">
+        <!--1-->
+        <div class="numb_1">
+            <p>1</p>
+        </div>
+        <!--2-->
+        <div class="numb_1">
+            <p>2</p>
+        </div>
+        <!--3-->
+        <div class="numb_1">
+            <p>3</p>
+        </div>
+        <!--+-->
+        <div class="numb_1">
+            <p>+</p>
+        </div>
+        <!--4-->
+        <div class="numb_2">
+            <p>4</p>
+        </div>
+        <!--5-->
+        <div class="numb_2">
+            <p>5</p>
+        </div>
+        <!--6-->
+        <div class="numb_2">
+            <p>6</p>
+        </div>
+        <!----->
+        <div class="numb_2">
+            <p>-</p>
+        </div>
+        <!--7-->
+        <div class="numb_3">
+            <p>7</p>
+        </div>
+        <!--8-->
+        <div class="numb_3">
+            <p>8</p>
+        </div>
+        <!--9-->
+        <div class="numb_3">
+            <p>9</p>
+        </div>
+        <!--%-->
+        <div class="numb_3">
+            <p>%</p>
+        </div>
+        <!--*-->
+        <div class="numb_4">
+            <p>*</p>
+        </div>
+        <!--0-->
+        <div class="numb_4">
+            <p>0</p>
+        </div>
+        <!--/-->
+        <div class="numb_4">
+            <p>/</p>
+        </div>
+        <!--=-->
+        <div class="numb_4">
+            <p>=</p>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(document).ready(function (){
+    var qian,zhong,hou,count,result,content,num=1;
+   // 换肤功能
+   $(".Skin_change").change(function () {
+       var change=$(this).val();
+       switch (change){
+           case "white":
+               $(".top,.Skin_change").css("background-color","white");break;
+           case "green":
+               $(".top,.Skin_change").css("background-color","#429B47");break;
+           case "blue":
+               $(".top,.Skin_change").css("background-color","#0083B9");break;
+           case "grey":
+               $(".top,.Skin_change").css("background-color","#E6E6E6");break;
+           case "orange":
+               $(".top,.Skin_change").css("background-color","#EAD714");break;
+           default:break;
+       }
+   });
+   //获取当前元素内容
+    $(".top_bottom div p").click(function () {
+        var s = $(this).text();
+        $("#get_one").append(s);
+        content = $("#get_one").text();
+        //console.log(content);  //测试数据
+        if((s=="+")||(s=="-")||(s=="*")||(s=="/")||(s=="%")){
+            var f = content;
+            count=f.length;
+            qian=Number(f.substring(0,f.length-1)); //前半部分
+            zhong=f.substring(f.length-1,f.length);
+            //console.log("前:"+qian);  //测试运算符前的数字显示
+            //console.log("中:"+zhong);  //测试运算符是否正常显示
+        }
+        if(s=="="){
+            var g = content;
+            hou = Number(g.substring(count,g.length-1));
+            //console.log("后:"+hou);   //测试运算符后面的代码
+            switch(zhong){
+                case "+":result=qian+hou;break;
+                case "-":result=qian-hou;break;
+                case "*":result=qian*hou;break;
+                case "/":result=String(qian/hou).substring(0,10);break;
+                case "%":result=String(qian%hou).substring(0,10);break;
+            }
+            $("#get_two").append(result);
+        }
+    });
+    //清屏功能
+    $(".btn_a").click(function () {
+        $("#get_one,#get_two").empty();
+    });
+    //退出功能
+    $(".btn_c").click(function () {
+        if(confirm("您确定要退出当前网页计算器吗？")){
+            window.opener=null;
+            window.open('','_self');
+            window.close();
+        }
+        else{
+            confirm("欢迎您继续使用网页计算器!");
+        }
+    });
+    //记录功能
+    $(".btn_b").click(function () {
+        alert("请按F12或打开控制台查看！");
+        var text1 = $("#get_one").text();
+        var text2 = $("#get_two").text();
+        console.log("第"+num+"次历史运算记录:"+text1+text2);
+        console.log("时间:"+Date());
+        num++;
+    })
+});
+</script>
+</html>
