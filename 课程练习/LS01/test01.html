@@ -12,9 +12,10 @@
 <script>
     //obj1和obj2无关联(深拷贝、浅拷贝)
     var obj1 = {"name":"zhangsan"};
-    var obj2 = {};
-    var name = obj1.name;
-    obj2.name = name;
+    var obj2 = obj1;
+    obj2.name = obj1.name;
+    obj2.name = 'lisi';
+    console.log(obj2.name,obj1.name)
     //==判断两边变量的值
     //=== 判断的是类型还有变量值
     var obj3 = {};
@@ -30,6 +31,9 @@
     str.slice(0,-1);
     //str.split("分隔符")以特定的分隔符来进行分割字符串
     //将子串作为数组元素
-
+    var obj = {
+        name:'zhangsan',
+        job:'学生'
+    }
 </script>
 </html>
