@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        进行等号两侧的模式匹配，然后完成变量的赋值
+    */
+    let [one , two, third] = [1.3 , 3, 4];
+    console.log(one,two,third);
+
+    /*
+        将第一个值赋给第一个变量，后面剩余的值赋给...tail
+    */
+    let[head, ...tail] = [1,2,3,4];
+    console.log(head,tail);
+
+    //对象的解构赋值
+    //根据键名匹配的变量，将键值赋值给响应变量
+    let{foo2,bar2} = {bar2:"bar2",foo2:"foo2"};
+    console.log(foo2,bar2);//foo2 bar2
+    //如果均为键值对的形式，键名仅仅是用来匹配
+    //键值会赋值给键值位置变量
+    let{k1:v1,k2:v2} = {k1:"aaa",k2:"bbb"};
+    console.log(v1,v2);//aaa bbb
+
+    //字符串的解构赋值
+    /*
+        如果等号右侧的不是一个对象时，
+    会转化为对象*/
+    let [a,b,c,d] = 'hello';
+    console.log(a,b,c,d)// h e l l
+
+    /*
+        首先将123转为对象
+        let num = new Number(123);
+        let {toString:s} = num;
+    */
+    let {toString:s} = 123;
+    console.log(s,s == Number.prototype.toString)//ƒ toString() { [native code] }   true
+
+    /*函数参数的解构赋值
+        适用于函数参数较多，解构较复杂的情况
+    */
+    function fun({x=0,y=0} = {}){
+        return [x,y];
+    }
+    console.log(fun({x:3,y:4}));//[3,4]
+    console.log(fun({x:3}));//[3,0]
+    console.log(fun({}));//[0,0]
+    console.log(fun());//[0,0]
+</script>
+</html>

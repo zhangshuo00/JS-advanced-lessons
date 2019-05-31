@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let [x,y] = [1,2];
+    [y,x] = [x,y]
+    console.log(x,y)//2,1
+
+    function exmple(){
+        return [1,2,3];
+    }
+    let [a,b,c] = exmple();
+    console.log(a,b,c)
+
+
+    /*
+        ES6对string的扩展
+    */
+    let str = "abcdef";
+    for(let i of str){
+        console.log(i);
+    }
+
+    let arr = ['hello','world'];
+    for(let j of arr){
+        console.log(j);
+    }
+    let str1 = 'hello';
+    console.log(str1.repeat(3));//hellohellohello
+
+    /*对RegExp的扩展*/
+    let reg1 = /xyz/gi;
+    let reg2 = new RegExp(/xyz/gi);
+    let reg3 = new RegExp('xyz','gi');
+    let reg4 = new RegExp(/xyz/gi,'i');
+
+    //正则对象.flags  获取正则对象的修饰符
+    console.log(reg1.flags);//gi
+
+    //y  粘性修饰符 从上一次匹配结束的lastIndex 位置开始匹配，匹配成功返回结果数组，匹配失败返回null
+    //
+    let str2 = "aaa_aa_a";
+    let reg5 = /a+/gi;
+    let reg6 = /a+/y;
+    console.log(reg5.exec(str2));
+    console.log(reg5.exec(str2));
+    console.log(reg6.exec(str2));
+    console.log(reg6.exec(str2));//null
+    console.log(reg6.lastIndex);
+</script>
+</html>
