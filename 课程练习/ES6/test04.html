@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*将类数组对象转换为数组*/
+    console.log(Array.from('abcdef'));
+
+    function fn1(){
+        let arr1 = Array.from(arguments);
+        console.log(arr1);
+    }
+    fn1(1,2,3);
+
+    /*Array.of()
+    可以将一组值转换为数组的结构*/
+    console.log(Array.of(1,2,3));
+
+    /*
+        copyWithin(target,start,end)
+        target  复制的目标位置
+        start  复制的起始位置
+        end  复制的结束位置（不包含)
+    */
+    let arr2 = [0,1,2,3,4,5,6];
+    console.log(arr2.copyWithin(0,3,5));//[3, 4, 2, 3, 4, 5, 6]
+
+    /*只查找数组中第一个符合条件的元素*/
+    let arr3 = [10,20,30,40,50];
+    let el = arr3.find(function(element){
+        return element>19;
+    });
+    console.log(el);
+
+    /*findeIndex()
+    返回符合条件的第一个元素的索引值*/
+    let elIndex = arr3.findIndex(function(element){
+        return element>20;
+    });
+    console.log(elIndex);
+
+    /*fill(value,填充的起始位置，填充的结束位置)*/
+    console.log(arr3.fill(0,0,3));//[0, 0, 0, 40, 50]
+
+    /*keys()  获取到的是数组的索引
+    values()  获取到的数组的元素值
+    可以使用for...of 进行遍历*/
+</script>
+</html>

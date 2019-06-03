@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*ES6简化写法 不兼容ie*/
+    var username = 'zhangsan';
+    var person = {
+        username,
+        show(){
+            console.log(this.username);
+        }
+    }
+    person.show();
+
+    /*如果属性名希望是个变量
+    [变量名]*/
+    let bar = "foo";
+    let obj = {
+        bar : "obj1"
+    }
+    console.log(obj.bar);
+
+    /*Object.is(value1,value2)
+    判断value1 和 value2是否相等
+    
+    Object.assign()*/
+    let target = {'username':"zhangsan"};
+    let source1 = {'age':20};
+    let source2 = {'sex':"man"};
+    console.log(Object.assign(target,source1,source2));
+</script>
+</html>
