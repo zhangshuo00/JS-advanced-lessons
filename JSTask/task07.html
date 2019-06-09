@@ -24,56 +24,48 @@
     let intervalId;
     let n = 0;
     //使用函数的bind()方法，绑定当前this
-    // btn.onclick = function(){
-    //     if(n == 1){
-    //         clearInterval(intervalId);
-    //         this.innerHTML = count;
-    //         n = 0;
-    //     }else{
-    //         intervalId = setInterval(function(){
-    //             this.innerHTML = count++;
-    //         }.bind(this),1000);
-    //         n = 1;
-    //     }
-    // }
-
-    //使用that将上面的this接收
-    // btn.onclick = function(){
-    //     if(n == 1){
-    //         clearInterval(intervalId);
-    //         this.innerHTML = count;
-    //         n = 0;
-    //     }else{
-    //         let that = this;
-    //         intervalId = setInterval(function(){
-    //             that.innerHTML = count++;
-    //         },1000);
-    //         n = 1;
-    //     }
-    // }
-
-    //使用ES6的箭头函数
-    // btn.onclick = function(){
-    //     if(n ==1){
-    //         clearInterval(intervalId);
-    //         this.innerHTML = count;
-    //         n = 0;
-    //     }else{
-    //         intervalId = setInterval(() => {
-    //             this.innerHTML = count++;
-    //         }, 1000);
-    //         n = 1;
-    //     }
-    // }
-    
     btn.onclick = function(){
         if(n == 1){
             clearInterval(intervalId);
             this.innerHTML = count;
             n = 0;
         }else{
-            
+            intervalId = setInterval(function(){
+                this.innerHTML = count++;
+            }.bind(this),1000);
+            n = 1;
         }
     }
+
+    //使用that将上面的this接收
+    btn.onclick = function(){
+        if(n == 1){
+            clearInterval(intervalId);
+            this.innerHTML = count;
+            n = 0;
+        }else{
+            let that = this;
+            intervalId = setInterval(function(){
+                that.innerHTML = count++;
+            },1000);
+            n = 1;
+        }
+    }
+
+    //使用ES6的箭头函数
+    btn.onclick = function(){
+        if(n ==1){
+            clearInterval(intervalId);
+            this.innerHTML = count;
+            n = 0;
+        }else{
+            intervalId = setInterval(() => {
+                this.innerHTML = count++;
+            }, 1000);
+            n = 1;
+        }
+    }
+    
+
 </script>
 </html>
