@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //相同参数的Symbol函数的返回值是不相等的
+    //并且具有唯一性
+    //不可转换为其他类型
+    let s1 = Symbol("s1");
+    let s2 = Symbol('s1');
+    console.log(s1 == s2);//false
+
+    let obj = {};
+    obj[s1] = "hello";
+
+    let obj1 = {
+        [s1]:"world"
+    }
+
+    let obj2 = {};
+    Object.defineProperty(obj2,s2,{
+        value:2
+    });
+    Object.getOwnPropertySymbols(obj2);
+
+    //变量复用的静态方法
+    console.log(Symbol.for("f1") == Symbol.for("f1"));//true
+
+    //新增的数据结构Set
+    //成员值唯一，没有重复的值
+    //通过add方法添加新成员，且不会添加重复的值
+    let set1 = new Set([1,2,3,4,5,6,1,2,3]);
+    console.log(set1);
+
+    let set3 = new Set();
+    [1,2,3,4,5,6,1,2,3].map(x => set3.add(x));
+    for(let i of set3){
+        console.log(i);
+    }
+    console.log(set3.has(9));//false
+
+    
+
+</script>
+</html>

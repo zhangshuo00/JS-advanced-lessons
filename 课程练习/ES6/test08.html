@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var o = {};
+    var map = new Map(
+        [['name','zhangsan'],
+        [o,'author']]
+    );
+    console.log(map.size);//2
+    map.has('name');
+    map.get('name');
+    map.has(o);
+    map.get(o);
+    map.delete(o);
+
+    for(let i of map){
+        console.log(i);
+    }
+</script>
+</html>

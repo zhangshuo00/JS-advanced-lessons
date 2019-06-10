@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Point(x,y){
+        this.x = x;
+        this.y = y;
+    }
+    Point.prototype.show = function(){
+        console.log(this.x);
+    }
+    let p1 = new Point(1,2);
+    //
+    class Point1{
+        constructor(x,y){
+            this.x = x;
+            this.y = y;
+        }
+        show(){
+            console.log(this.x);
+        }
+    }
+    let p = new Point1();
+    p.show();
+    console.log(typeof Point1);
+
+    let a = new Point1(12,12);
+    let b = new Point1(12,12);
+    console.log(a.__proto__ === b.__proto__);
+</script>
+</html>
