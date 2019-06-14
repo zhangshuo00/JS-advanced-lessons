@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        为了给各种数据结构提供统一的遍历接口
+    */
+    function createIterator(arr){
+        var i = 0;
+        return{
+            next:function(){
+                return i < arr.length ? {value:arr[i++],done:false}:
+                {value:undefined,done:true};
+            }
+        }
+    }
+    let iterator1 = createIterator([1,2,3,4,5]);
+    console.log(iterator1.next());
+    console.log(iterator1.next());
+
+    var str = 'abcdef';
+    let arr1 = [1,2,3,4,5];
+    let m1 = new Map({name:'zhangsan',age:29});
+    let s1 = new Set([1,2,3,4]);
+    /*普通的对象无法直接使用遍历器遍历*/
+    let obj = {name:'zhangsa',age:12};
+    for (let i of str){
+        console.log(i)
+    }
+    for (let j of arr1){
+        console.log(j)
+    }
+
+    console.log(arr1[Symbol.iterator]);
+</script>
+</html>
