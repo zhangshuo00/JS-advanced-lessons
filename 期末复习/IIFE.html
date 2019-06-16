@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var i = function(){
+        return 19;
+    }();//i 为19
+    ~function(arg1,arg2){
+        console.log(arg1,arg2);
+    }(1,2);
+    !function(){
+        return 2;
+    }();//false
+    !function(){
+        return 0;
+    }();//true
+
+    function f(){
+        var getNumFuncs = [];
+        for(var i = 0;i<10;i++){
+            (function(j){
+                getNumFuncs[j] = function(){return j;}
+            })(i);
+            return getNumFuncs;
+        }
+    }
+    var tmp = f();
+    tmp[3]();
+
+    /**/
+    for(var i =0;i<tabs.length;i++){
+        (function(i){
+            tabs[i].onclick = function(){
+                for(var j = 0;j<tabs.length;j++){
+                    tabs[j].className = '';
+                }
+                this.className = 'active';
+                contents.innerHTML = '点击了'+i;
+            }
+        })();
+    }
+
+    /**/
+    for(var i = 0;i<3;i++){
+        (function(j){
+            setTimeout(function(){
+                console.log(new Date,j);
+            },1000*i);
+        })(i);
+    }
+</script>
+</html>

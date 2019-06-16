@@ -42,7 +42,7 @@ console.log(str2.substr(0,3));//'zha'
 //String.prototype.substring(indexstart,indexend);返回一个字符串在开始索引到结束索引之间的一个子集
 //或从开始索引到字符串末尾的一个子集
 let str4 = 'zhangsan';
-console.log(str4.substring(2,4));
+console.log(str4.substring(2,4));//'an'
 
 //String.prototype.split();用指定的分隔符分割成字符串数组
 //如果空字符串被用作分隔符，则会在每个字符之间分割

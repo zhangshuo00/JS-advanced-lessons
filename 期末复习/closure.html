@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function createInc(startValue){
+        return function(step){
+            startValue+=step;
+            return startValue;
+        }
+    }
+    /*前两次输出中，startValue常驻内存*/
+    var inc = createInc(5);
+    console.log(inc(1));//6
+    console.log(inc(2));//8
+    //第三次输出前，新建了一个闭包，startValue重新创建
+    inc = createInc(5);
+    console.log(inc(1));//6
+
+
+    //
+    function foo(){
+        var i = 0;
+        function bar(){
+            console.log(++i);
+        }
+        return bar;
+    }
+    var a = foo();
+    var b = foo();
+    a();//1
+    a();//2
+    b();//1
+
+
+    //以函数对象形式返回
+    var tmp = 100;
+    function foo(x){
+        var tmp = 3;
+        return function(y){
+            console.log(x+y+(++tmp));
+        }
+    }
+    var fee = foo(2);
+    fee(10);
+    fee(10);
+    fee(10);
+
+
+    //作为对象的方法返回
+    function counter(){
+        var n = 0;
+        return{
+            count:function(){return ++n},
+            reset:function(){n =0;return n;}
+        }
+    }
+    var c = counter(),d = counter();
+    console.log(c.count());
+    console.log(d.count());
+    console.log(c.reset());
+    console.log(c.count());
+    console.log(d.count());
+
+
+    //
+    function f1(){
+        var n = 999;
+        function f2(){
+            console.log(++n);
+        }
+        return f2;
+    }
+    var f = f1();
+    f();
+    f();
+</script>
+</html>
